@@ -11,7 +11,8 @@ It is required to have Node.js and npm installed to run this project.
 > I used versions `v16.20.2` and `8.19.4` of Node.js and npm, respectively. I suggest you use the same or later versions.
 
 ## Techs / Libs
-Playwright  
+Playwright
+DotEnv
 
 ## Installation
 
