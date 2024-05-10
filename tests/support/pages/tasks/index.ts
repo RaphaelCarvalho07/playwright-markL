@@ -1,11 +1,13 @@
-import { Page, expect } from '@playwright/test'
+import { Page, Locator, expect } from '@playwright/test'
 import { TaskModel } from '../../../fixtures/task.model'
 
 export class TasksPage {
     readonly page: Page
+    readonly inputTaskName: Locator
 
     constructor(page: Page) {
         this.page = page
+        this.inputTaskName = this.page.locator('input[class*="InputNewTask"]')
     }
 
     async go() {
@@ -13,8 +15,7 @@ export class TasksPage {
     }
 
     async create(task: TaskModel) {
-        const InputTaskname = this.page.locator('input[class*="InputNewTask"]')
-        await InputTaskname.fill(task.name)
+        await this.inputTaskName.fill(task.name)
 
         await this.page.click('css=button >> text=Create')
     }
